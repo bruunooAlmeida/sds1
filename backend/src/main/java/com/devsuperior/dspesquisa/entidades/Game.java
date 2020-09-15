@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.devsuperior.dspesquisa.entidades.enums.Platform;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @Entity
@@ -29,25 +30,26 @@ public class Game implements Serializable  {
 	private String title;
 	private Platform platform;
 	
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name = "genre_id")
-	
+	@JoinColumn(name = "genre_id")	
 	private Genre genre;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "game")
 	List<Record> records = new ArrayList<>();
 	
 	public Game() {
-		
+		// TODO Auto-generated constructor stub
 	}
 	
-	
-	public Game(long id, String title, Platform platform, Genre genre) {
+	public Game(long id, String title, Platform platform, Genre genre, List<Record> records) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.platform = platform;
 		this.genre = genre;
+		this.records = records;
 	}
 
 	public long getId() {
@@ -58,11 +60,11 @@ public class Game implements Serializable  {
 		this.id = id;
 	}
 
-	public String getitle() {	
+	public String getTitle() {
 		return title;
 	}
 
-	public void settitle(String title) {
+	public void setTitle(String title) {
 		this.title = title;
 	}
 
@@ -74,16 +76,18 @@ public class Game implements Serializable  {
 		this.platform = platform;
 	}
 
+	public List<Record> getRecords() {
+		return records;
+	}
+
+	public void setRecords(List<Record> records) {
+		this.records = records;
+	}
+
 	public Genre getGenre() {
 		return genre;
 	}
 
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
-
-	
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -105,6 +109,6 @@ public class Game implements Serializable  {
 			return false;
 		return true;
 	}
-	
+		
 	
 }

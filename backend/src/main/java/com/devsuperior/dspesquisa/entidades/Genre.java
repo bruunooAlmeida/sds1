@@ -24,6 +24,10 @@ public class Genre implements Serializable {
 	private long id;
 	private String name;
 	
+	public Genre() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Genre(long id, String name) {
 		super();
 		this.id = id;

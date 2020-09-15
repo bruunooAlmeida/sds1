@@ -9,15 +9,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dspesquisa.dto.GameDTO;
-import com.devsuperior.dspesquisa.entidades.Game;
 import com.devsuperior.dspesquisa.repositories.GameRepository;
 import com.devsuperior.dspesquisa.services.GameService;
+
 
 @RestController
 @RequestMapping(value = "/games")
 public class GameResource {
 	
-	@Autowired
 	private GameService service;
 	
 	@Autowired

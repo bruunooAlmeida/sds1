@@ -15,7 +15,6 @@ public class GameDTO implements Serializable  {
 	private Platform platform;
 	
 	public GameDTO() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public GameDTO(Game entity) {

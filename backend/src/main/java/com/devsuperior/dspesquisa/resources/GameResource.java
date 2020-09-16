@@ -17,10 +17,8 @@ import com.devsuperior.dspesquisa.services.GameService;
 @RequestMapping(value = "/games")
 public class GameResource {
 	
-	private GameService service;
-	
 	@Autowired
-	private GameRepository gameRepository;
+	private GameService service;
 	
 	@GetMapping
 	public ResponseEntity<List<GameDTO>> findAll(){

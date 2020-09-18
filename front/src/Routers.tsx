@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
 import Header from './components/Header';
 import Home from './pages/home';
-import Records from './pages/home/Records';
+import Records from './pages/Records';
+
 
 const Routes = () => (
     <BrowserRouter>

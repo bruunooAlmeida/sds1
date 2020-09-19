@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import Filters from '../../components/Filters';
 import './styles.css'
-import { barOptions , pieOptions} from './charts-options';
+import { barOptions , pieOptions} from './chart-options';
 import Chart from 'react-apexcharts';
 import axios from 'axios';
 import { buildBarSeries ,getPlatformChartData, getGenderChartData } from './helpers';
@@ -22,13 +22,14 @@ const initialPieData = {
     series: []
 }
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'http://localhost:8081';
 
 const Charts = () => {
     const [barChartData , setbarChartData] = useState<BarChartData[]>([]);
     
     const [platFormData , setplatFormData] = useState<PieChartData>(initialPieData);
     const [genderData ,   setGenderData]   = useState<PieChartData>(initialPieData);
+
     
     useEffect( () => {
         async function getData() {
@@ -70,21 +71,23 @@ const Charts = () => {
                         <Chart
                                  options={{...pieOptions , labels: platFormData?.labels }}
                                  type="donut"                                 
-                                 series={platFormData?.series}
-                                 width="350"
-                        />
-                    </div>                    
-                    <div className="gender-chart">
-                         <h2 className="chart-title">Generos</h2>
-                        <Chart
-                                 options={{...pieOptions , labels: genderData?.labels }}
-                                 type="donut"                                 
-                                 series={genderData?.series}
+                                 series={platFormData?.series   }
                                  width="350"
                         />
                     </div>
+                    <div className="gender-chart">
+                         <h2 className="chart-title">Generos</h2>
+                        <Chart
+                                 options={{...pieOptions , labels: platFormData?.labels }}
+                                 type="donut"                                 
+                                 series={genderData?.series   }
+                                 width="350"
+                        />
+                    </div>
+                   
                 </div>
-            </div>            
+            </div>
+            
         </div>
         
     )

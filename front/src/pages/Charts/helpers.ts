@@ -4,7 +4,7 @@ import { RecordItem } from '../Records/types';
 export const buildBarSeries = (games: Game[], records: RecordItem[]) => {
   const mappedGames = games.map(game => {
     const filteredGames = records.filter(item => {
-      return item.gameTitle === game.title && item.gamePlatform === game.platform
+      return item.gameTitle === game.title && item.gamePlatform === game.platform;
     });
 
     return {

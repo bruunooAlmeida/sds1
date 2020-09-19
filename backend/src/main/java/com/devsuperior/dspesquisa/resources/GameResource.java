@@ -9,9 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.devsuperior.dspesquisa.dto.GameDTO;
-import com.devsuperior.dspesquisa.repositories.GameRepository;
 import com.devsuperior.dspesquisa.services.GameService;
-
 
 @RestController
 @RequestMapping(value = "/games")
@@ -25,4 +23,5 @@ public class GameResource {
 		List<GameDTO> list = service.findAll();
 		return ResponseEntity.ok().body(list);
 	}
+	
 }

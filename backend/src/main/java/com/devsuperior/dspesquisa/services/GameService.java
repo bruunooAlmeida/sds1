@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.devsuperior.dspesquisa.dto.GameDTO;
-import com.devsuperior.dspesquisa.entidades.Game;
+import com.devsuperior.dspesquisa.entities.Game;
 import com.devsuperior.dspesquisa.repositories.GameRepository;
 
 @Service
@@ -18,8 +18,8 @@ public class GameService {
 	private GameRepository repository;
 	
 	@Transactional(readOnly = true)
-	public List<GameDTO> findAll(){
+	public List<GameDTO> findAll() {
 		List<Game> list = repository.findAll();
-		return list.stream().map(x -> new GameDTO(x)).collect(Collectors.toList()); 
+		return list.stream().map(x-> new GameDTO(x)).collect(Collectors.toList());
 	}
 }

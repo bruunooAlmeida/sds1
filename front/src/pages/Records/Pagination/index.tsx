@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import './styles.css';  
 
 type Props = {
     totalPages?: number;
@@ -7,18 +7,22 @@ type Props = {
     activePage: number;
 }
 
-const Pagination = ({ totalPages = 0, goToPage, activePage }:Props) => {
-    const paginationItens = Array.from(Array(totalPages).keys());
+const Pagination = ({ totalPages = 0, goToPage, activePage}: Props) => {
+    const paginationItems = Array.from(Array(totalPages).keys());
+   
     return (
         <div className="pagination-container">
-            { paginationItens.map(item => 
-                <button key={item} className={`pagination-item ${activePage === item ? 'active' : 'inactive'}`}
-                onClick={() => goToPage(item)} 
+            {paginationItems.map(item => (
+                <button 
+                    key={item}
+                    className={`pagination-item ${activePage ===item ? 'active' : 'inactive'}`}
+                    onClick={() => goToPage(item)}
                 >
-                 { item + 1}
+                {item +1}
                 </button>
-            )}                        
+            ))}
         </div>
-    );
+   );
 }
- export default Pagination;
+
+export default Pagination;

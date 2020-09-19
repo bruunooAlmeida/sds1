@@ -2,18 +2,14 @@ package com.devsuperior.dspesquisa.dto;
 
 import java.io.Serializable;
 
-public class RecordInsertDTO implements Serializable  {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L; 
-	private String name;
-	private Integer  age;
-	private Long    gameId;
+public class RecordInsertDTO implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
-	public RecordInsertDTO() {
-		// TODO Auto-generated constructor stub
-	}
+	private String name;
+	private Integer age;
+	private Long gameId;
+	
+	public RecordInsertDTO() {}
 
 	public String getName() {
 		return name;
@@ -40,5 +36,6 @@ public class RecordInsertDTO implements Serializable  {
 	}
 	
 	
-	
 }
+
+

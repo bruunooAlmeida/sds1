@@ -1,14 +1,16 @@
 import React from 'react';
 import { Text,StyleSheet , View , Image} from 'react-native';
 
-
+import {TouchableWithoutFeedback} from  'react-native-gesture-handler';
 const Header = () => {
     return (
+      <TouchableWithoutFeedback>
         <View style={styles.header}>
             <Image source={require('../../assets/logo.png')}/>
             <Text style={styles.textLogo1}> Big Game</Text> 
             <Text style={styles.textLogo1}> Suavey</Text> 
         </View>
+        </TouchableWithoutFeedback>
     )
 };
 

@@ -2,8 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-import Header from './src/componets/header';
-import Home from './src/pages/Home';
+
+import Routes from './src/routers';
 
 import { AppLoading } from 'expo';
 import {
@@ -22,9 +22,8 @@ export default function App() {
     return <AppLoading />
   }else{
       return (
-        <View style={styles.container}>
-          <Header/>
-          <Home/>
+        <View style={styles.container}>          
+          <Routes/  >
           <StatusBar style="light" />  
         </View>
       );

@@ -1,11 +1,20 @@
 import React from 'react';
 import { FontAwesome5 as  Icon} from '@expo/vector-icons'
-import { Text,StyleSheet , View , Image} from 'react-native';
+import { Text,StyleSheet , View , Image , Alert} from 'react-native';
 import { RectButton} from 'react-native-gesture-handler';
+import Header from '../../componets/header';
+import { useNavigation } from "@react-navigation/native"
+
 
 const Home = () => {
+    const navigation = useNavigation();
+
+    const handleOnPress = ( ) =>{
+        navigation.navigate('CreateRecord'); 
+     }
     return (
        <>
+        <Header/>
          <View style={styles.container}>
             <Image source={require('../../assets/gamer.png')}
                    style={styles.gamerImage}
@@ -14,7 +23,7 @@ const Home = () => {
             <Text style={styles.subTitle}> Nos diga seu jogo favorito!</Text> 
         </View>
         <View style={styles.footer}>
-            <RectButton style={styles.button}>
+            <RectButton style={styles.button} onPress={handleOnPress}>
                 <Text style={styles.buttonText}>
                     Coletar Dados
                 </Text>

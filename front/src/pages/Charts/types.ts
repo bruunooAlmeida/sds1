@@ -2,7 +2,7 @@ import { Platform } from "../Records/types";
 
 export type Game = {
     id:        number;
-    name:     string;
+    title:     string;
     platform : Platform;
 }
 

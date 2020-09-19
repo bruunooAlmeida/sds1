@@ -1,10 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
-
-import Routes from './src/routers';
-
 import { AppLoading } from 'expo';
 import {
   useFonts,
@@ -12,28 +8,28 @@ import {
   Play_700Bold
 } from '@expo-google-fonts/play';
 
+import Routes from './src/routes';
+
 export default function App() {
-  const[fontsLoaded] = useFonts({
+  const [fontsLoaded] = useFonts({
     Play_400Regular,
     Play_700Bold
-  })
+  });
 
-  if (!fontsLoaded){
+  if(!fontsLoaded){
     return <AppLoading />
-  }else{
-      return (
-        <View style={styles.container}>          
-          <Routes/  >
-          <StatusBar style="light" />  
-        </View>
-      );
+  } else{
+    return (
+      <View style={styles.container}>
+        <Routes />
+        <StatusBar style="light" />
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#0B1F34',
-  },
-
+    flex: 1
+  }
 });

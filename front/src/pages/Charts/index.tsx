@@ -29,13 +29,12 @@ const Charts = () => {
     
     const [platFormData , setplatFormData] = useState<PieChartData>(initialPieData);
     const [genderData ,   setGenderData]   = useState<PieChartData>(initialPieData);
-
     
     useEffect( () => {
         async function getData() {
             const recordResponse = await axios.get(`${BASE_URL}/records`);
             const gamesResponse   = await axios.get(`${BASE_URL}/games`);
-            const barData = buildBarSeries( gamesResponse.data, recordResponse.data.container);
+            const barData = buildBarSeries( gamesResponse.data, recordResponse.data.content);
             setbarChartData(barData);
             
             const platformChartData = getPlatformChartData(recordResponse.data.content);
@@ -71,22 +70,21 @@ const Charts = () => {
                         <Chart
                                  options={{...pieOptions , labels: platFormData?.labels }}
                                  type="donut"                                 
-                                 series={platFormData?.series   }
+                                 series={platFormData?.series}
                                  width="350"
                         />
-                    </div>
+                    </div>                    
                     <div className="gender-chart">
                          <h2 className="chart-title">Generos</h2>
-                         <Chart
-                                 options={{...pieOptions ,  labels: genderData?.labels }}
+                        <Chart
+                                 options={{...pieOptions , labels: genderData?.labels }}
                                  type="donut"                                 
-                                 series={[genderData.series]}
+                                 series={genderData?.series}
                                  width="350"
                         />
                     </div>
                 </div>
-            </div>
-            
+            </div>            
         </div>
         
     )
